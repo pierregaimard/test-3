@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-32';
+
+  changeTitle (title: string): void {
+    this.title = title;
+  }
 }
