@@ -28,4 +28,12 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('test-32 app is running!');
   });
+
+  it('should change the title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('test-32');
+    app.changeTitle('test-33');
+    expect(app.title).toEqual('test-33');
+  })
 });
