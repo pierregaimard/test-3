@@ -16,8 +16,20 @@ jobs:
       - name: Test
         run: |
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  coverage:
+    needs: [ build ]
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: npm install -g yarn
+      - run: yarn install
+      - run: yarn build
       - uses: paambaati/codeclimate-action@v2.2.4
         env:
           CC_TEST_REPORTER_ID: 0792448ae780b07460d8b5c1907176789f4dd8b9a22a44aa392f52204cbb3166
         with:
-          coverageCommand: npm test --code-coverage
+          coverageCommand: yarn coverage
