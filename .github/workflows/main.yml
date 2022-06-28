@@ -16,7 +16,8 @@ jobs:
       - name: Test
         run: |
           npm test -- --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI
-  Coverage:
-    uses: paambaati/codeclimate-action@v3.0.0
-    env:
-      CC_TEST_REPORTER_ID: 0792448ae780b07460d8b5c1907176789f4dd8b9a22a44aa392f52204cbb3166
+
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: 0792448ae780b07460d8b5c1907176789f4dd8b9a22a44aa392f52204cbb3166
