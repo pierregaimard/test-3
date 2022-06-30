@@ -29,7 +29,6 @@ module.exports = function (config) {
       subdir: '.',
       reporters: [
         { type: 'lcov' },
-        { type: 'text-summary' }
       ],
       check: {
         global: {
