@@ -32,7 +32,7 @@ describe('AppComponent', () => {
   it('should change the title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('test-32');
+    expect(app.title).withContext('change title to test-32').toEqual('test-32');
     app.changeTitle('test-33');
     expect(app.title).toEqual('test-33');
   })
